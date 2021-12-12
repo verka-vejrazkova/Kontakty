@@ -146,6 +146,9 @@ const vysledek = document.querySelector('#vysledek');
 const hledat = document.querySelector("#hledat")
 const jmeno = document.querySelector("#jmeno")
 
+let aktualniKontakty = []
+
+
 window.addEventListener("load",() => {
 	for(let i = 0; i < kontakty.length; i++) {
 		vysledek.appendChild(vytvorKontakt(i, kontakty))
@@ -165,7 +168,7 @@ hledat.addEventListener("click", () => {
 	for(let i = 0; i < filtrovaneKontakty.length; i++) {
 		vysledek.appendChild(vytvorKontakt(i, filtrovaneKontakty))
 	}
-	/*document.getElementById("vysledek").style.visibility = "hidden"*/
+	
 	  
 	console.log(filtrovaneKontakty)
 
@@ -173,15 +176,23 @@ hledat.addEventListener("click", () => {
 })
 
 nahoru.addEventListener("click", () => {
-	console.log("funguje")
-
+	
 	vysledek.innerHTML = ""
-
-	for (let i = 0; i <= kontakty.length; i++) {
-		kontakty[i] = i + 1;
+	
+	kontakty.sort(porovnej)
+	function porovnej(kontakty.vek) {
+		if (kontakty.vek > kontakty.vek) {
+			return 1
+		} else {
+			return -1
+		}
 	}
-
 })
+
+
+
+
+
 
 dolu.addEventListener("click", () => {
 	console.log("funguje")
